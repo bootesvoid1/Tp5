@@ -1,0 +1,24 @@
+<h1>Formulaire basé sur un modéle angular</h1>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <label>Name:</label>
+  <input type="text" name="fullname" placeholder="Votre nom complet" ngModel required>
+  <div *ngIf="myForm.submitted && myForm.controls['fullname'].invalid">Nom complet est Requis</div>
+  <br>
+  <input type="password" name="motdepasse" placeholder="Votre mot de passe" ngModel required>
+  <div *ngIf="myForm.submitted && myForm.controls['motdepasse'].invalid">Mot de passe est Requis</div>
+  <br>
+  <input type="password" name="confirmationmdps" placeholder="Votre mot de passe" ngModel required>
+  <div *ngIf="myForm.submitted && myForm.controls['confirmationmdps'].invalid">Confirmation de mot de passe  est Requis</div>
+  <div *ngIf="myForm.controls['motdepasse']?.valid && myForm.controls['confirmationmdps']?.value !== myForm.controls['motdepasse']?.value ">Vérifiez le mot de passe</div>
+  <br>
+  <label>Email:</label>
+  <input type="email" name="email" placeholder="votre email" ngModel required>
+  <div *ngIf="myForm.submitted && myForm.controls['email'].invalid">E-mail est Requis</div>
+  <br>
+  <label>Message:</label>
+ <textarea name="message" placeholder="votre message" ngModel required></textarea>
+ <div *ngIf="myForm.submitted && myForm.controls['message'].invalid">Message est Requis</div>
+
+ <br>
+  <input type="submit" value="Envoyer">
+ </form>

@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+     <tr>
+       <th scope="col">User</th>
+       <th scope="col">Name</th>
+       <th scope="col">Email</th>
+       <th scope="col">Details</th>
+       <th scope="col">Actions</th>
+     </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let u of users">
+       <th scope="row">{{u.id}}</th>
+       <td>{{u.fullname}}</td>
+       <td>{{u.email}}</td>
+       <td>{{u.message}}</td>
+       <td><button type="button" class="btn btn-outline-primary"(click)="openDetails()" >Details</button></td>
+       <td><button type="button" class="btn btn-outline-danger"(click)="deleteUser(u.id)" >Delete</button></td>
+
+     </tr>
+  </tbody>
+ </table>
